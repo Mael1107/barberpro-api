@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post "/auth/login", to: "auth#login"
       get "/auth/me", to: "auth#me"
       get "/admin/test", to: "auth#admin_test"
+      resources :services
     end
   end
 end
