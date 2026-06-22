@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :barber_profile, dependent: :destroy
+  has_many :appointments_as_client, class_name: "Appointment", foreign_key: :client_id, dependent: :destroy
   has_secure_password
 
   enum :role, { client: 0, barber: 1, admin: 2 }, default: :client

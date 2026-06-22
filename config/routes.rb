@@ -6,6 +6,11 @@ Rails.application.routes.draw do
       get "/auth/me", to: "auth#me"
       get "/admin/test", to: "auth#admin_test"
       resources :services
+      resources :users, only: [:index] do
+        member do
+          patch :promote_to_barber
+        end
+      end
     end
   end
 end
